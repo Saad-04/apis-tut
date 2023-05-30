@@ -1,14 +1,12 @@
 import express from "express";
-import {userFromParams} from "../controllers/userFromParams.js";
-import {userFromName} from "../controllers/userFromName.js";
-import {userAll} from "../controllers/userAll.js";
-import { updateUser } from "../controllers/updateUser.js";
-import { deleteUser } from "../controllers/deleteUser.js";
+import {login,userAll,userData,register} from '../controllers/userController.js'
+
 
 export const router = express.Router()
 
 
 router.get('/all', userAll)
+router.get('/userData', userData)
+router.post('/register', register)
+router.post('/login', login)
 
-router.get('/userid/:name', userFromParams)
-router.route('/userid/:name').get(userFromName).put(updateUser).delete(deleteUser)
